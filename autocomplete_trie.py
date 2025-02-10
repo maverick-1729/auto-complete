@@ -192,9 +192,11 @@ class HybridAutocomplete:
       scored_candidates.sort(key=lambda x: x[1], reverse=True)
       return [ticker for ticker, _ in scored_candidates[:max_suggestions]]
 
+autocomplete = HybridAutocomplete(tickers=ticker_list, ngram_size=3)
+
 def get_suggestions_api(query):
 
-    autocomplete = HybridAutocomplete(tickers=ticker_list, ngram_size=3)
+    # autocomplete = HybridAutocomplete(tickers=ticker_list, ngram_size=3)
     suggestions = autocomplete.get_suggestions(query, max_suggestions=10)
 
     return suggestions
